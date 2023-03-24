@@ -15,11 +15,11 @@ public class Case_1_1_1_Draft_1_Edit {
 
 
         BufferedReader buffered = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Введите первую дату с разделителем '/': пример: 12/11/2021");
+        System.out.println("Введите первую дату с разделителем '/': пример: 01/11/2021");
         String date1 = buffered.readLine();
-        System.out.println("Введите вторую дату с разделителем '/': пример: 12/11/2021");
+        System.out.println("Введите вторую дату с разделителем '/': пример: 01/11/2021");
         String date2 = buffered.readLine();
-        System.out.println("Введите третью дату с разделителем '/': пример: 12/11/2021");
+        System.out.println("Введите третью дату с разделителем '/': пример: 01/11/2021");
         String date3 = buffered.readLine();
 
         // Задаём адрес исходной веб-страницы Центробанка в текстовом формате.
