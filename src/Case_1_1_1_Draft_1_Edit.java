@@ -24,7 +24,7 @@ public class Case_1_1_1_Draft_1_Edit {
 
         // Задаём адрес исходной веб-страницы Центробанка в текстовом формате.
         String originalStrText = "https://cbr.ru/scripts/XML_dynamic.asp?date_req1=12/11/2021&date_req2=12/11/2021&VAL_NM_RQ=R01235";
-        System.out.println(originalStrText);
+        System.out.println(originalStrText + System.lineSeparator());
 
         // Меняем в адресе исходной страницы даты на введённые (в трех строках).
         String urlWithDate1 = originalStrText.replaceAll("12/11/2021", date1);
@@ -33,6 +33,13 @@ public class Case_1_1_1_Draft_1_Edit {
         System.out.println(urlWithDate2);
         String urlWithDate3 = originalStrText.replaceAll("12/11/2021", date3);
         System.out.println(urlWithDate3);
+
+        String page1 = downloadWebPage(urlWithDate1);
+        int startIndex1 = page1.lastIndexOf("<Value>");
+        int endIndex1 = page1.lastIndexOf("</Value>");
+        String courseStr1 = page1.substring(startIndex1 + 7, endIndex1);
+        System.out.println(courseStr1);
+
 
 
 //        String page1 = downloadWebPage("https://cbr.ru/scripts/XML_dynamic.asp?date_req1=12/11/2021&date_req2=13/11/2021&VAL_NM_RQ=R01235");
