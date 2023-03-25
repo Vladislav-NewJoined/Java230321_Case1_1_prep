@@ -18,8 +18,6 @@ public class Case_1_1_1_Draft_2_EnterData {
 
 
         BufferedReader buffered = new BufferedReader(new InputStreamReader(System.in));
-//        System.out.println("Введите первую дату с разделителем '/': пример: 01/11/2021");
-//        String date1 = buffered.readLine();
 
         System.out.println("Введите исходную дату с разделителем '/': пример: 03/03/2020");
         String originalDate = buffered.readLine();  // Start date
