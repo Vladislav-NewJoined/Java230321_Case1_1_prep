@@ -18,7 +18,7 @@ public class Case_1_1_1_Draft_4_EditCorrected {
 
         BufferedReader buffered = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("Введите исходную дату с разделителем '/': пример: 04/04/2020");
+        System.out.println("Введите исходную дату с разделителем '/': пример: 12/02/2020");
         String originalDate = buffered.readLine();  // Start date
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Calendar c = Calendar.getInstance();
