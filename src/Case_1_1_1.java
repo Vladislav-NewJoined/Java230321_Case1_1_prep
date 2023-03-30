@@ -151,7 +151,7 @@ public class Case_1_1_1 {
         int urlBegin = pageNasa.lastIndexOf("url");
         int urlEnd = pageNasa.lastIndexOf("}");
         String urlPhoto = pageNasa.substring(urlBegin + 6, urlEnd - 1);
-        try(InputStream in = new URL(urlPhoto).openStream()){
+        try (InputStream in = new URL(urlPhoto).openStream()) {
             Files.copy(in, Paths.get("new.jpg"));
         }
 
@@ -162,12 +162,7 @@ public class Case_1_1_1 {
         String explanation = pageNasa.substring(explanationBegin + 14, explanationEnd - 3);
         System.out.println(explanation);
 
-
-
     }
-
-
-
 
     private static String downloadWebPage(String url) throws IOException {
         StringBuilder result = new StringBuilder();
