@@ -23,7 +23,10 @@ public class Case_2_1_1_Draft_11_FromBegin {
 
         int startIndex = originalPage.lastIndexOf("<Value>") + 7;
         int endIndex = originalPage.lastIndexOf("</Value>");
-        System.out.println("Курс на исходную дату " + originalPage.substring(startIndex, endIndex));
+        //System.out.println("Курс на исходную дату " + originalPage.substring(startIndex, endIndex));
+        // Переменная курс на исходную дату
+        String origCourseStr = originalPage.substring(startIndex, endIndex);
+        System.out.println("Курс на исходную дату " + origCourseStr);
 
         System.out.println("Введите исходную дату с разделителем '/': пример: 14/02/2020");
         String originDate = buffered.readLine();  // Start date
@@ -37,20 +40,27 @@ public class Case_2_1_1_Draft_11_FromBegin {
         System.out.println(originDate);
         System.out.println(nextDate);
 
-        // Меняем в адресе исходной страницы даты на введённые (в трех строках).
+        // Меняем в адресе исходной страницы дату на следующую.
 
         String urlWithNextDate = originalPageText.replaceAll("12/11/2021", nextDate);
 
         System.out.println("Страница после перемены даты:");
         System.out.println(urlWithNextDate);
 
-
+        String nextPage = downloadWebPage(urlWithNextDate);
         System.out.println("Исходный код после перемены даты:");
+        System.out.println(nextPage);
+        System.out.println("Курс после перемены даты в типе String:");
+        String courseNextPage = nextPage.substring(startIndex, endIndex);
+        System.out.println(courseNextPage);
+
 
         // Делаем курс в виде переменной.
-        String courseStr = originalPage.substring(startIndex, endIndex);
         // Задаём курсы с типом переменной double.
-        double courseDoble = 0;
+        double courseNextDoble = Double.parseDouble(courseNextPage.replace(",", "."));
+        System.out.println("Курс Double:");
+        System.out.println(courseNextDoble);
+
 
 
 
