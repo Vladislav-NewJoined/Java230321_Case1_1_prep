@@ -61,7 +61,7 @@ public class Case_2_1_1_Draft_13_DONE {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             Calendar c = Calendar.getInstance();
             c.setTime(sdf.parse(String.valueOf(dtStr)));
-            c.add(Calendar.DATE, 1);  // number of days to add
+//            c.add(Calendar.DATE, 0);  // number of days to add
             String nextDate;
             nextDate = sdf.format(c.getTime());  // entering nextDate
 
@@ -88,39 +88,14 @@ public class Case_2_1_1_Draft_13_DONE {
                 double courseNextDoble = Double.parseDouble(courseNextPage.replace(",", "."));
                 // System.out.println("Курс в типе переменной Double:");
                 // System.out.println(courseNextDoble);
+                // Выводим на экран дату и соответствующий курс.
                 System.out.println("Курс на " + nextDate + "    " + courseNextDoble);
             } else {
                 String courseNextPage = "";
                 System.out.println("Курс на " + nextDate);
 
             }
-
-//            System.out.println("Курс после перемены даты в типе переменной String:");
-//            //String courseNextPage = nextPage.substring(startIndex, endIndex);
-//            System.out.println(courseNextPage);
-
-//            // Задаём курс в виде переменной Double.
-//            double courseNextDoble = Double.parseDouble(courseNextPage.replace(",", "."));
-//            System.out.println("Курс в типе переменной Double:");
-//            System.out.println(courseNextDoble);
-
-            // Выводим на экран дату и соответствующий курс.
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
