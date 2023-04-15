@@ -41,7 +41,6 @@ public class Case_2_1_1_Draft_11_FromBegin {
         System.out.println(nextDate);
 
         // Меняем в адресе исходной страницы дату на следующую.
-
         String urlWithNextDate = originalPageText.replaceAll("12/11/2021", nextDate);
 
         System.out.println("Страница после перемены даты:");
@@ -62,15 +61,7 @@ public class Case_2_1_1_Draft_11_FromBegin {
         System.out.println(courseNextDoble);
 
 
-
-
-        }
-
-
-
-
-
-
+    }
 
 
     private static String downloadWebPage(String url) throws IOException {
