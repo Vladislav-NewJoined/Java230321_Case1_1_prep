@@ -9,11 +9,9 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
-public class Case_2_1_1_Draft_12_FromBegWithСycle {
+public class Case_2_1_1_Draft_13_DONE {
     // Кейс «Анализатор курса валют».
     // Задание 2. - Пользователь вводит месяц и год. Вывести курс рубля за этот месяц, найти наибольший и наименьшие значения
     // Инфо здесь: Как найти анализ курса валют за определенную дату. Урок 6 Видео мин 0.44.56
@@ -21,7 +19,7 @@ public class Case_2_1_1_Draft_12_FromBegWithСycle {
     public static void main(String[] args) throws IOException, ParseException {
         BufferedReader buffered = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("Введите исходные месяц и год с разделителем '/': пример: 02/2020");
+        System.out.println("Введите исходные месяц и год с разделителем '/', пример: 02/2020:");
         String origMonth = buffered.readLine();  // Start month
 //        System.out.println(origMonth);
 
@@ -57,11 +55,9 @@ public class Case_2_1_1_Draft_12_FromBegWithСycle {
             DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String dtStr = dt.format(f) ;
             // set to midnight at JVM default timezone
-            System.out.println(dtStr);  // Это надо
+            // System.out.println(dtStr);  // Это надо
             int startIndex = originalPage.lastIndexOf("<Value>") + 7;
             int endIndex = originalPage.lastIndexOf("</Value>");
-            // System.out.println("Введите исходную дату с разделителем '/': пример: 14/02/2020"); // Это не надо
-            // String originDate = buffered.readLine();  // Start date  // Это не надо
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             Calendar c = Calendar.getInstance();
             c.setTime(sdf.parse(String.valueOf(dtStr)));
@@ -75,12 +71,12 @@ public class Case_2_1_1_Draft_12_FromBegWithСycle {
             // Меняем в адресе исходной страницы дату на следующую.
             String urlWithNextDate = originalPageText.replaceAll("12/11/2021", nextDate);
 
-            System.out.println("Страница после перемены даты:"); // Это не надо
-            System.out.println(urlWithNextDate);  // Это не надо
+            // System.out.println("Страница после перемены даты:"); // Это не надо
+            // System.out.println(urlWithNextDate);  // Это не надо
 
             String nextPage = downloadWebPage(urlWithNextDate);
-            System.out.println("Исходный код после перемены даты:");
-            System.out.println(nextPage);
+            // System.out.println("Исходный код после перемены даты:");
+            // System.out.println(nextPage);
 
             // String courseNextPage;
 
@@ -90,8 +86,8 @@ public class Case_2_1_1_Draft_12_FromBegWithСycle {
                 String courseNextPage = nextPage.substring(startIndex, endIndex);
                 // Задаём курс в виде переменной Double.
                 double courseNextDoble = Double.parseDouble(courseNextPage.replace(",", "."));
-                System.out.println("Курс в типе переменной Double:");
-                System.out.println(courseNextDoble);
+                // System.out.println("Курс в типе переменной Double:");
+                // System.out.println(courseNextDoble);
                 System.out.println("Курс на " + nextDate + "    " + courseNextDoble);
             } else {
                 String courseNextPage = "";
@@ -116,10 +112,6 @@ public class Case_2_1_1_Draft_12_FromBegWithСycle {
 
 
 
-        //System.out.println("Курс на исходную дату " + originalPage.substring(startIndex, endIndex));
-        // Переменная курс на исходную дату
-        //String origCourseStr = originalPage.substring(startIndex, endIndex);
-        //System.out.println("Курс на исходную дату " + origCourseStr);
 
 
 
