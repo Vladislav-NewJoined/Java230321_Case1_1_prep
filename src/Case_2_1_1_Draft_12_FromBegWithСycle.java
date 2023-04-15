@@ -11,6 +11,7 @@ import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Case_2_1_1_Draft_12_FromBegWithСycle {
     // Кейс «Анализатор курса валют».
@@ -41,7 +42,6 @@ public class Case_2_1_1_Draft_12_FromBegWithСycle {
 
         // Преобразовываем ввод через переменную YearMonth.
         YearMonth ym = YearMonth.of(yeaI, monI);
-        //System.out.println(ym);
 
         // Скачиваем исходный код веб-страницы Центробанка.
         String originalPage = downloadWebPage("https://cbr.ru/scripts/XML_dynamic.asp?date_req1=12/11/2021&date_req2=12/11/2021&VAL_NM_RQ=R01235");
@@ -54,15 +54,17 @@ public class Case_2_1_1_Draft_12_FromBegWithСycle {
         for(int day = 1; day <= lastDay; day++) {
             // create the day
             LocalDate dt = ym.atDay(day);
+            DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            String dtStr = dt.format(f) ;
             // set to midnight at JVM default timezone
-            System.out.println(dt.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));  // Это надо
+            System.out.println(dtStr);  // Это надо
             int startIndex = originalPage.lastIndexOf("<Value>") + 7;
             int endIndex = originalPage.lastIndexOf("</Value>");
             // System.out.println("Введите исходную дату с разделителем '/': пример: 14/02/2020"); // Это не надо
             // String originDate = buffered.readLine();  // Start date  // Это не надо
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             Calendar c = Calendar.getInstance();
-            c.setTime(sdf.parse(String.valueOf(dt)));
+            c.setTime(sdf.parse(String.valueOf(dtStr)));
             c.add(Calendar.DATE, 1);  // number of days to add
             String nextDate;
             nextDate = sdf.format(c.getTime());  // entering nextDate
